@@ -1,8 +1,35 @@
+#python and poetry
 venv
+.vscode
 
 __pycache__/
 *.py[cod]
-.env
 
 .cache/
 dist/
+
+#docker
+volumes
+
+# frontend
+frontend/logs
+frontend/*.log
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/pnpm-debug.log*
+frontend/lerna-debug.log*
+
+frontend/node_modules
+frontend/dist
+frontend/dist-ssr
+frontend/*.local
+
+frontend/.vscode
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
