@@ -33,3 +33,6 @@ frontend/.vscode
 *.njsproj
 *.sln
 *.sw?
+
+poetry.lock
+frontend/package-lock.json
