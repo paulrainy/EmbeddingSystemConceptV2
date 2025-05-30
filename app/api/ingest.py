@@ -47,8 +47,19 @@ async def ingest(req: IngestRequest):  # noqa: D401 – simple wrapper
         loader = TestCaseLoader(abs_path)
         cases = loader.load()
         # 2. Сериализация в JSON (records - самый универсальный)
-        df = pd.concat(cases, ignore_index=True)
-        payload = df.to_json(orient="records")
+        df_all = pd.concat(cases, ignore_index=True)
+        df_cases = (
+            df_all
+            .groupby("Id", as_index=False)
+            .agg({
+                "Direction":    "first",
+                "Section":      "first",
+                "TestCaseName": "first",
+                "Steps":        lambda s: " ".join(s.dropna()),
+                "ExpectedResult": "first",
+            })
+        )
+        payload = df_cases.to_json(orient="records")
 
         # 3. Сохранение в Redis
         job_id = uuid.uuid4().hex

@@ -20,7 +20,6 @@ from pandas import DataFrame
 
 logger = logging.getLogger(__name__)
 
-
 class TestCaseLoader:  # noqa: D101 – docstring provided at class level
     def __init__(self, file_path: str | Path):
         self.file_path = Path(file_path)
