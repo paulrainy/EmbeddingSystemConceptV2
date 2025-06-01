@@ -4,6 +4,13 @@ export default {
     './index.html',
     './src/**/*.{vue,js,ts,jsx,tsx,css}',
   ],
-  theme: { extend: {} },
+  theme: {
+    extend: {
+      colors: {
+        primary: '#1e40af',
+        secondary: '#f472b6',
+      },
+    },
+  },
   plugins: [],
 }
